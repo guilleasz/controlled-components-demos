@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Form = ({ email, password, handleChange }) => (
-  <form>
+const Form = ({ email, password, handleChange, handleSubmit }) => (
+  <form onSubmit={handleSubmit}>
     <label htmlFor="email">Email</label>
     <input
       onChange={handleChange}
@@ -18,7 +18,7 @@ const Form = ({ email, password, handleChange }) => (
       id="password"
     />
     {password.length > 8 ? 'TU CONTRASEÑA ES MUY LARGA' : null}
-    <input disabled={!password || !email } type="submit" />
+    <input disabled={!password || !email} type="submit" />
   </form>
 );
 

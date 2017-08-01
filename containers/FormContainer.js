@@ -9,6 +9,7 @@ export default class FormContainer extends React.Component {
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -17,9 +18,14 @@ export default class FormContainer extends React.Component {
     });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.state);
+  }
+
   render() {
     return (
-      <Form handleChange={this.handleChange} {...this.state} />
+      <Form handleSubmit={this.handleSubmit} handleChange={this.handleChange} {...this.state} />
     );
   }
 }
