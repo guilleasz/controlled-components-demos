@@ -1,12 +1,24 @@
 import React from 'react';
 
-const Form = () => (
+const Form = ({ email, password, handleChange }) => (
   <form>
     <label htmlFor="email">Email</label>
-    <input id="email" />
+    <input
+      onChange={handleChange}
+      value={email}
+      id="email"
+      name="email"
+    />
     <label htmlFor="password">Password</label>
-    <input id="password" />
-    <input type="submit" />
+    <input
+      name="password"
+      onChange={handleChange}
+      value={password}
+      type="password"
+      id="password"
+    />
+    {password.length > 8 ? 'TU CONTRASEÑA ES MUY LARGA' : null}
+    <input disabled={!password || !email } type="submit" />
   </form>
 );
 
